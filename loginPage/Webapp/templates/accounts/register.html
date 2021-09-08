@@ -1,5 +1,5 @@
 
-
+{%block content%}
 
 
 
@@ -7,17 +7,18 @@
 <html> <head> <h1>Registration Form</h1> 
 </head> 
 <body> 
-<form action="#" method = "POST"> 
+<form action="" method = "POST"> 
     {%csrf_token%}
-    {{formset.management_form}}
-    {%for form in formset%}
-        {{form}}
-        <hr>
-    {%endfor%}
+    <label for="fname">First name:</label><br>
+    <input type="text" id="fname" name="fname" value="John"><br>
+    {{form.name}}
+    <label for="lname">first name:</label><br>
+    <input type="text" id="lname" name="lname" value="Doe">
+    {{form.firstName}}
     <input type="submit" name='Submit'>
 </form> 
 </body> 
 </html>
-
+{%endblock%}
 
 

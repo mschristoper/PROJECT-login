@@ -9,16 +9,12 @@ from django.contrib.auth.models import Group
 def registerPage(request):  
 
     form = Customer()
+
     if request.method == 'POST':
         form = Customer(request.POST)
         if form.is_valid():
-            user = form.save()
-            username = form.cleaned_data.get('username')
-
-            group = Group.objects.get(name = 'Customer')
-            user.groups.add(group)
-            
-
+            form.save()
+            return redirect('/')          
     context = {form: 'form'}
     return render(request, 'accounts/register.html', context)
 
