@@ -1,0 +1,21 @@
+
+{% block content%}
+
+
+
+<!DOCTYPE html>
+<html> <head> <h1> Company Registration Form</h1> 
+</head> 
+<body> 
+<form> 
+    {%csrf_token%}
+    {{formset.management_form}}
+    {%for form in formset%}
+        {{form}}
+</form> 
+</body> 
+</html>
+
+
+{%endblock%}
+
